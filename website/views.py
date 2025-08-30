@@ -3,12 +3,12 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("Welcome to the homepage")
+    return render(request, 'home.html')
 
 
 def about(request):
-    return HttpResponse("About us")
+    return render(request, 'about.html')
 
 
 def contact(request):
-    return HttpResponse("Contact us")
+    return render(request, 'contact.html')
