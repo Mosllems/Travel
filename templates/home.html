@@ -1,6 +1,11 @@
 {% extends '_base.html' %}
 {% load static %}
 
+
+<title>{% block title %} Home {% endblock title %}</title>
+
+{% block content %}
+
 <body>
 
 
@@ -673,5 +678,7 @@
 
 
 </body>
+
+{% endblock content %}
 
 </html>
