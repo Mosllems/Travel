@@ -63,8 +63,8 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'website:home' %}">Home</a></li>
+                    <li><a href="{% url 'website:about' %}">About</a></li>
                     <li class="menu-has-children"><a href="">Blog</a>
                         <ul>
                             <li><a href="blog-home.html">Blog Home</a></li>
@@ -82,7 +82,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'website:contact' %}">Contact</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
