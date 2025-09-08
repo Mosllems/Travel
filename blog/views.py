@@ -11,7 +11,7 @@ def blogview(request):
 
 
 def blogdetail(request, title):
-    post = get_object_or_404(Post, title=title)
+    post = get_object_or_404(Post, title=title, status=1)
     return render (request, "blog/blog-single.html", context={
         'post': post,
 
