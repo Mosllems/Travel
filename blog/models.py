@@ -5,7 +5,7 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     description = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    # image
+    image = models.ImageField(upload_to='blog/', default='blog/default.png')
     # tag
     # category
     counted_view = models.IntegerField(default=0)
