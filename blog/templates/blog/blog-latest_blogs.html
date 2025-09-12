@@ -12,7 +12,7 @@
                 <a href="blog-single.html">
                     <h6>{{post.title}}</h6>
                 </a>
-                <p>{{post.created_date}}</p>
+                <p>{{post.created_date|date:"d M Y"}}</p>
             </div>
         </div>
         {%endfor%}
