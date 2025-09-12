@@ -1,5 +1,6 @@
 {% extends '_base.html' %}
 {% load static %}
+{% load blog_tags %}
 
 
 <title>{% block title %} Blog {% endblock title %}</title>
@@ -164,6 +165,8 @@
 						</div>
 						
 						{% include 'blog/blog-writer.html' %}
+
+						{% get_latest_blogs %}
 
 						<div class="single-sidebar-widget popular-post-widget">
 							<h4 class="popular-title">Popular Posts</h4>
