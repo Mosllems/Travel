@@ -1,0 +1,14 @@
+
+
+<div class="single-sidebar-widget post-category-widget">
+    <h4 class="category-title">Post Catgories</h4>
+    <ul class="cat-list">
+        {% for category in categories %}
+        <li>
+            <a href="#" class="d-flex justify-content-between">
+                <p>{{category.name}}</p>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
