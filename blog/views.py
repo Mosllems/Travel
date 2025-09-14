@@ -19,3 +19,15 @@ def blogdetail(request, title):
         'post': post,
 
     })
+
+
+def search(request):
+    if request.method=='GET':
+        searched= request.GET.get('s')
+        posts = Post.objects.filter(status=1,title__icontains=searched).order_by("-created_date")
+    else:
+        posts = Post.objects.filter(status=1).order_by("-created_date")
+    return render (request, "blog/blog-home.html", context= {
+        'posts': posts,
+        
+        })

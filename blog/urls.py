@@ -7,5 +7,6 @@ app_name = 'blog' # we must write the apps'name here, because once the project g
 urlpatterns = [
     path('', views.blogview, name='blogview'),
     path('<str:title>', views.blogdetail, name='blogdetail'),
+    path('search/', views.search, name='search'),
 
 ]
