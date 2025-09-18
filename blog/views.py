@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
-from blog.models import Post, Category
+from blog.models import Post, Category, Comment
 from taggit.models import Tag
 
 
@@ -28,8 +28,10 @@ def blogview(request):
 
 def blogdetail(request, title):
     post = get_object_or_404(Post, title=title, status=1)
+    comments = Comment.objects.filter(post__title=title)
     return render (request, "blog/blog-single.html", context={
         'post': post,
+        'comments' : comments,
     
     })
 

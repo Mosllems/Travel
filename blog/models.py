@@ -27,3 +27,20 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, models.CASCADE, related_name='comments')
+    author = models.CharField(max_length=255)
+    subject = models.CharField(max_length=255)
+    status = models.BooleanField(default=True)
+    email = models.EmailField()
+    message = models.TextField()
+    datetime_created = models.DateTimeField(auto_now_add=True)
+    datetime_modified = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-datetime_created']
+
+    def __str__(self):
+        return self.author
