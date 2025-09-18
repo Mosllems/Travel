@@ -124,7 +124,7 @@
 							</div>
 							<h3 class="posts-title">{{post.title}}</h3>
 							<p class="excert">
-								{{post.description|truncatechars:30}}
+								{{post.description|truncatechars:30|safe}}
 							</p>
 							<a href=" {% url 'blog:blogdetail' post.title %} " class="primary-btn">View More</a>
 						</div>

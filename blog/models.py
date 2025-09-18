@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+ 
+from ckeditor.fields import RichTextField
 
 
 class Category(models.Model):
@@ -12,7 +14,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=250)
-    description = models.TextField()
+    description = RichTextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     image = models.ImageField(upload_to='blog/', default='blog/default.png')
     category = models.ManyToManyField(Category)
