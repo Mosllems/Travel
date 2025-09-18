@@ -4,7 +4,7 @@ from blog.models import Post, Category
 
 
 def blogview(request):
-    posts = Post.objects.filter(status=1).order_by("-created_date")
+    posts = Post.objects.filter(status=1).order_by("-created_date").prefetch_related('category')
     category = request.GET.get("category")
 
     if category:
