@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator
 from blog.models import Post, Category, Comment
 from taggit.models import Tag
+from .forms import CommentForm
 
 
 def blogview(request):
@@ -29,10 +30,19 @@ def blogview(request):
 def blogdetail(request, title):
     post = get_object_or_404(Post, title=title, status=1)
     comments = Comment.objects.filter(post__title=title)
+
+    if request.method=="POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.post = post
+            form.save() 
+    else:
+            form = CommentForm()
     return render (request, "blog/blog-single.html", context={
         'post': post,
         'comments' : comments,
-    
+        'form' : form,    
     })
 
 
